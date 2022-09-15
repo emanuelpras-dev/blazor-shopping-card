@@ -2,7 +2,9 @@
 
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<ProductList Products="Products" DisplayBuyButton="true" />
 
-Welcome to your new app.
 
+@code {
+    public List<Models.Product> Products { get; set; } = Services.ProductProviderService.Products.ToList();
+}
