@@ -1,4 +1,6 @@
-﻿@foreach (var product in Products)
+﻿@inject shopping_cart_blazor.Services.CartService CartService
+
+@foreach (var product in Products)
 {
     <div class="card w-25">
         <div class="card-body">
@@ -7,7 +9,7 @@
             <blockquote class="card-text">$@product.Price</blockquote>
             @if (DisplayBuyButton)
             {
-                <button class="btn btn-primary" type="button">Buy</button>
+                <button class="btn btn-primary" type="button" @onclick="() => Buy(product.Id)">Buy</button>
             }
         </div>
     </div>
@@ -19,4 +21,11 @@
     public List<Models.Product> Products { get; set; } = new();
     [Parameter]
     public bool DisplayBuyButton { get; set; }
+
+    //add method to add a product to the cart
+    //this method will be invoked when the user pressed buy button
+    private void Buy(Guid productId)
+    {
+        CartService.AddProductToCart(productId);
+    }
 }
