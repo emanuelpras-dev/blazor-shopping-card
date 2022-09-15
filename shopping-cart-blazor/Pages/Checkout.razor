@@ -1,6 +1,6 @@
 ﻿@page "/checkout"
 
-@inject shopping_cart_blazor.Services.CartService CartService
+@inject Services.CartService CartService
 
 <h3>You have @CartService.SelectedItems.Count in cart:</h3>
 <ProductList Products="CartService.SelectedItems"></ProductList>
