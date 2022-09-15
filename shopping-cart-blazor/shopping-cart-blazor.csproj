@@ -10,8 +10,10 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'shopping-cart-blazor' " />
   <ItemGroup>
     <None Remove="Data\" />
+    <None Remove="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 </Project>
