@@ -7,6 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+builder.Services.AddSingleton<ProductProviderService>();
+builder.Services.AddHttpClient<IProductProviderService, ProductProviderService>(client =>
+{
+    client.BaseAddress = new Uri("https://jsonplaceholder.typicode.com");
+});
+
 
 //register services/cartService
 builder.Services.AddScoped<CartService>();

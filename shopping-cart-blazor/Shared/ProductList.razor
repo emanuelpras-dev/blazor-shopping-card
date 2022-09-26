@@ -4,12 +4,14 @@
 {
     <div class="card w-25">
         <div class="card-body">
-            <h5 class="card-title">@product.Name</h5>
-            <p class="card-text">@product.Description</p>
-            <blockquote class="card-text">$@product.Price</blockquote>
+            <h5 class="card-title">@product.Id</h5>
+            <p class="card-text">@product.Title</p>
+            <blockquote class="card-text">$@product.Body</blockquote>
             @if (DisplayBuyButton)
             {
-                <button class="btn btn-primary" type="button" @onclick="() => Buy(product.Id)">Buy</button>
+                <button class="btn btn-primary" type="button"
+                        @*@onclick="() => Buy(product.Id)"*@
+                        >Buy</button>
             }
         </div>
     </div>
@@ -24,8 +26,8 @@
 
     //add method to add a product to the cart
     //this method will be invoked when the user pressed buy button
-    private void Buy(Guid productId)
+    @*private void Buy(int productId)
     {
         CartService.AddProductToCart(productId);
-    }
+    }*@
 }
